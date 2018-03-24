@@ -18,9 +18,9 @@ See LICENSE.md file
 
 namespace middleout {
 
-std::unique_ptr<std::vector<char>> compressSimple(std::vector<int64_t>& data);
+std::unique_ptr<std::vector<char> > compressSimple(std::vector<int64_t>& data);
 
-std::unique_ptr<std::vector<char>> compressSimple(std::vector<double>& data);
+std::unique_ptr<std::vector<char> > compressSimple(std::vector<double>& data);
 
 size_t compress(std::vector<int64_t>& data, std::vector<char>& output);
 

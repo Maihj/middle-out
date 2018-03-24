@@ -25,7 +25,7 @@ class Avx52 {
    public:
 	Avx52();
 
-	static std::unique_ptr<std::vector<char>> compressSimple(std::vector<T>& data);
+	static std::unique_ptr<std::vector<char> > compressSimple(std::vector<T>& data);
 
 	static size_t compress(std::vector<T>& data, std::vector<char>& output);
 

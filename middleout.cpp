@@ -23,11 +23,11 @@ See LICENSE.md file
 
 namespace middleout {
 
-std::unique_ptr<std::vector<char>> compressSimple(std::vector<int64_t>& data) {
+std::unique_ptr<std::vector<char> > compressSimple(std::vector<int64_t>& data) {
 	return ALG_CLASS<int64_t>::compressSimple(data);
 }
 
-std::unique_ptr<std::vector<char>> compressSimple(std::vector<double>& data) {
+std::unique_ptr<std::vector<char> > compressSimple(std::vector<double>& data) {
 	return ALG_CLASS<double>::compressSimple(data);
 }
 

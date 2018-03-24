@@ -4,7 +4,7 @@ CC = g++
 #	COMPILE AND RUN TESTS
 ###
 GOOGLE_TEST_LIB = gtest
-CC_TEST_FLAGS = -O2 -g -Wall -Wno-strict-aliasing -fsanitize=address -D_GLIBCXX_DEBUG_PEDANTIC
+CC_TEST_FLAGS = -O2 -g -Wall -Wno-strict-aliasing -fsanitize=address -D_GLIBCXX_DEBUG_PEDANTIC -std=c++11
 LD_TEST_FLAGS = -l $(GOOGLE_TEST_LIB) -l pthread -l gtest_main
 
 TEST_OBJECTS = gtest/test.cpp scalar.cpp
@@ -23,7 +23,7 @@ test-avx512:
 ###
 #	COMPILE STATIC LIBS
 ###
-CC_LIB_FLAGS = -c -O3 -s
+CC_LIB_FLAGS = -c -O3 -s -std=c++11
 
 lib:
 	mkdir -p $(BUILD_DIR)
@@ -36,7 +36,7 @@ lib-avx512:
 	mkdir -p $(BUILD_DIR)
 	$(CC) $(CC_LIB_FLAGS) middleout.cpp avx512.cpp helpers.hpp -march=skylake-avx512 -D USE_AVX512
 	ar -rcs libmiddleout-avx512.a middleout.o avx512.o helpers.hpp.gch
-	mv libmiddleout-$(BUILD_DIR).a $(BUILD_DIR)/
+	mv libmiddleout-avx512.a $(BUILD_DIR)/
 	cp middleout.hpp $(BUILD_DIR)/
 
 install-libs-example:
@@ -51,7 +51,7 @@ clean-lib:
 ###
 #	COMPILE AND RUN GOOGLE BENCHMARK TESTS
 ###
-CC_GBENCH_FLAGS = -O3
+CC_GBENCH_FLAGS = -O3 -std=c++11
 LD_GBENCH_FLAGS = -l gtest -l benchmark -l pthread
 
 GBENCH_OBJECTS = gbench/perf.cpp scalar.cpp

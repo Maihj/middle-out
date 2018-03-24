@@ -24,8 +24,8 @@ template <typename T>
 Scalar<T>::Scalar() {}
 
 template <typename T>
-std::unique_ptr<std::vector<char>> Scalar<T>::compressSimple(std::vector<T>& data) {
-	std::unique_ptr<std::vector<char>> compressed(
+std::unique_ptr<std::vector<char> > Scalar<T>::compressSimple(std::vector<T>& data) {
+	std::unique_ptr<std::vector<char> > compressed(
 	    new std::vector<char>(Scalar<T>::maxCompressedSize(data.size())));
 	size_t size = Scalar<T>::compress(data, *compressed);
 	compressed->resize(size);

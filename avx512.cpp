@@ -25,8 +25,8 @@ template <typename T>
 Avx52<T>::Avx52() {}
 
 template <typename T>
-std::unique_ptr<std::vector<char>> Avx52<T>::compressSimple(std::vector<T>& data) {
-	std::unique_ptr<std::vector<char>> compressed(
+std::unique_ptr<std::vector<char> > Avx52<T>::compressSimple(std::vector<T>& data) {
+	std::unique_ptr<std::vector<char> > compressed(
 	    new std::vector<char>(Avx52<T>::maxCompressedSize(data.size())));
 	size_t size = Avx52<T>::compress(data, *compressed);
 	compressed->resize(size);
