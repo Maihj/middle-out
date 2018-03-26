@@ -4,7 +4,7 @@ CC = g++
 #	COMPILE AND RUN TESTS
 ###
 GOOGLE_TEST_LIB = gtest
-CC_TEST_FLAGS = -O2 -g -Wall -Wno-strict-aliasing -fsanitize=address -D_GLIBCXX_DEBUG_PEDANTIC -std=c++11
+CC_TEST_FLAGS = -O2 -g -Wall -Wno-strict-aliasing -fsanitize=address -D_GLIBCXX_DEBUG_PEDANTIC -std=c++14
 LD_TEST_FLAGS = -l $(GOOGLE_TEST_LIB) -l pthread -l gtest_main
 
 TEST_OBJECTS = gtest/test.cpp scalar.cpp
@@ -23,7 +23,7 @@ test-avx512:
 ###
 #	COMPILE STATIC LIBS
 ###
-CC_LIB_FLAGS = -c -O3 -s -std=c++11
+CC_LIB_FLAGS = -c -O3 -s -std=c++14
 
 lib:
 	mkdir -p $(BUILD_DIR)
@@ -51,7 +51,7 @@ clean-lib:
 ###
 #	COMPILE AND RUN GOOGLE BENCHMARK TESTS
 ###
-CC_GBENCH_FLAGS = -O3 -std=c++11
+CC_GBENCH_FLAGS = -O3 -std=c++14
 LD_GBENCH_FLAGS = -l gtest -l benchmark -l pthread
 
 GBENCH_OBJECTS = gbench/perf.cpp scalar.cpp
